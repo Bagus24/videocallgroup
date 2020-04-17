@@ -22,6 +22,7 @@
         }).then(function(localTracks) {
             return Twilio.Video.connect('{{ $accessToken }}', {
                 name: '{{ $roomName }}',
+                audio: true,
                 video: {
                     width: 300
                 }
