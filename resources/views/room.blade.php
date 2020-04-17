@@ -14,20 +14,18 @@
     <script src="https://media.twiliocdn.com/sdk/js/video/v1/twilio-video.min.js"></script>
     <script>
         
-        // Twilio.Video.createLocalTracks({
-        //     audio: true,
-        //     video: {
-        //         width: 300
-        //     }
-        // }).then(function(localTracks) {
-        //     return 
-        Twilio.Video.connect('{{ $accessToken }}', {
+        Twilio.Video.createLocalTracks({
+            audio: true,
+            video: {
+                width: 300
+            }
+        }).then(function(localTracks) {
+            return Twilio.Video.connect('{{ $accessToken }}', {
                 name: '{{ $roomName }}',
-                audio: true,
                 video: {
                     width: 300
                 }
-   
+            });
         }).then(function(room) {
             console.log('Successfully joined a Room: ', room.name);
 
